@@ -2,6 +2,7 @@ package com.driver;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 
 import org.apache.velocity.runtime.directive.Break;
 
@@ -41,11 +42,20 @@ public class Gmail extends Email {
         // Each message is distinct
         // If the given message is found in any mail in the inbox, move the mail to trash, else do nothing
 
-        for(MailData mailData: inbox){
-            if(mailData.getMessage().equals(message)){
-                inbox.remove(mailData);
-                trash.add(0, mailData);
-                break;
+        // for(MailData mailData: inbox){
+        //     if(mailData.getMessage().equals(message)){
+        //         inbox.remove(mailData);
+        //         trash.add(0, mailData);
+        //         break;
+        //     }
+        // }
+        Iterator<MailData> iterator = inbox.iterator();
+        while (iterator.hasNext()) {
+            MailData mail = iterator.next();
+            String messageInMail = mail.getMessage();
+            if (messageInMail.equals(message)) {
+                trash.add(mail);
+                iterator.remove();
             }
         }
         // inbox.remove(maildata1);

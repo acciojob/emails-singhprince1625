@@ -66,7 +66,7 @@ public class Gmail extends Email {
         // If the inbox is empty, return null
         // Else, return the message of the latest mail present in the inbox
         if(inbox.isEmpty()){
-            return "";
+            return null;
         }
 
         return inbox.get(0).getMessage();
@@ -76,7 +76,7 @@ public class Gmail extends Email {
         // If the inbox is empty, return null
         // Else, return the message of the oldest mail present in the inbox
         if(inbox.isEmpty()){
-            return "";
+            return null;
         }
 
         return inbox.get(inbox.size()-1).getMessage();

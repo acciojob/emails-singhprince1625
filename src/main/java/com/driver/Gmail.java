@@ -78,7 +78,7 @@ public class Gmail extends Email {
         int ans = 0;
         for(MailData mailData : inbox){
             Date mailDate = mailData.getmailDate();
-            if( start.before(mailDate) && end.after(mailDate)){
+            if( start.after(mailDate) && end.before(mailDate)){
                 ans++;
             }else if (!end.after(mailDate)) {
                 break;

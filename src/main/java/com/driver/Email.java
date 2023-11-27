@@ -77,4 +77,29 @@ public class Email {
         }
         return false;
     }
+
+    // public boolean isValid(String newPassword){
+    //     if(newPassword.length() < 8){
+    //         return false;
+    //     }
+
+    //     boolean hasUpper = false;
+    //     boolean hasLower = false;
+    //     boolean hasDigit = false;
+    //     boolean hasSpecialCh = false;
+
+    //     for(int ch : newPassword.toCharArray()){
+    //         if(Character.isUpperCase(ch)){
+    //             hasUpper = true;
+    //         } else if (Character.isLowerCase(ch)) {
+    //             hasLower = true;
+    //         }else if(Character.isDigit(ch)){
+    //             hasDigit = true;
+    //         }else{
+    //             hasSpecialCh = true;
+    //         }
+    //     }
+
+    //     return hasUpper && hasLower && hasDigit && hasSpecialCh;
+    // }
 }

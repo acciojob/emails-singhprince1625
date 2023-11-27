@@ -15,23 +15,31 @@ public class Meeting {
     }
 
     public static int maxMeetings(List<Meeting> meetings) {
-        
-        // Sort meetings by end time
-        Collections.sort(meetings, Comparator.comparing(meeting -> meeting.endTime));
 
         int maxMeetings = 0;
         LocalTime lastEndTime = LocalTime.MIN;
 
-        // Iterate through sorted meetings and attend non-overlapping ones
-        for (Meeting meeting : meetings) {
-            if (meeting.startTime.isAfter(lastEndTime) || meeting.startTime.equals(lastEndTime)) {
-                // Attend the meeting
-                lastEndTime = meeting.endTime;
-                maxMeetings++;
+        try {
+            
+            // Sort meetings by end time
+            Collections.sort(meetings, Comparator.comparing(meeting -> meeting.endTime));
+
+            // Iterate through sorted meetings and attend non-overlapping ones
+            for (Meeting meeting : meetings) {
+                if (meeting.startTime.isAfter(lastEndTime) || meeting.startTime.equals(lastEndTime)) {
+                    // Attend the meeting
+                    lastEndTime = meeting.endTime;
+                    maxMeetings++;
+                }
             }
+
+                
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return maxMeetings;
+
     }
 
 }
